@@ -19,6 +19,10 @@ crash.*
 **/crash.log
 **/crash.*
 
+# lock file
+.terraform.lock.hcl
+**/.terraform.lock.hcl
+
 # --- Backup files created by Terraform ---
 *.backup
 *.tfstate.backup
