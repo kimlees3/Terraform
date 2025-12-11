@@ -12,7 +12,7 @@
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
 resource "aws_eip" "myEIP" {
-  domain   = "vpc"
+  domain = "vpc"
   tags = {
     Name = "myEIP"
   }
@@ -117,13 +117,13 @@ resource "aws_vpc_security_group_egress_rule" "mySG2_egress" {
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "myEC2-2" {
-  ami           = "ami-00e428798e77d38d9"
-  instance_type = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.mySG2.id]
-  subnet_id = aws_subnet.myPriSN.id
-  key_name = "mykeypair"
-  user_data_replace_on_change = true 
-  user_data = <<EOF
+  ami                         = "ami-00e428798e77d38d9"
+  instance_type               = "t3.micro"
+  vpc_security_group_ids      = [aws_security_group.mySG2.id]
+  subnet_id                   = aws_subnet.myPriSN.id
+  key_name                    = "mykeypair"
+  user_data_replace_on_change = true
+  user_data                   = <<EOF
 #!/bin/bash
 dnf -y install httpd mod_ssl
 echo "MyWEB Server2" > /var/www/html/index.html
@@ -134,3 +134,4 @@ EOF
     Name = "myEC2-2"
   }
 }
+
